@@ -8,8 +8,9 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-//const teaRoutes = require('./routes/teaRoutes');
-//app.use('/api/teas', teaRoutes);
+const teaRoutes = require('./routes/teaRoutes');
+app.use('/api/teas', teaRoutes);
+app.get('/test', (req, res) => res.send('伺服器本體正常！'));
 // 1. 資料庫連線
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log(' MongoDB Connected to Docker!'))

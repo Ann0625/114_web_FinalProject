@@ -1,0 +1,112 @@
+/* 匯入 Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+
+/* 基本重置與底色 */
+body {
+    background-color: #ecf2ec; /* 淺墨綠底色 */
+    color: #1b3022;
+    margin: 0; /* 確保無邊距，讓頁首貼頂 */
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Noto Serif TC", serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* --- 底層茶壺重複圖騰 (Pattern) --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 使用小茶壺 SVG 圖騰 */
+    background-image: url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23064e3b' fill-opacity='0.03'%3E%3Cpath d='M30,40 Q30,30 50,30 Q70,30 70,40 L70,60 Q70,75 50,75 Q30,75 30,60 Z'/%3E%3Cpath d='M70,45 Q85,45 85,52.5 Q85,60 70,60' fill='none' stroke='%23064e3b' stroke-opacity='0.03' stroke-width='4'/%3E%3Cpath d='M30,50 L15,40' fill='none' stroke='%23064e3b' stroke-opacity='0.03' stroke-width='4'/%3E%3Crect x='45' y='25' width='10' height='5' rx='2'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* 大型茶壺水印 (Fixed Watermark) */
+.teapot-watermark {
+    position: fixed;
+    bottom: -80px;
+    right: -80px;
+    opacity: 0.03;
+    transform: rotate(-15deg);
+    z-index: -1;
+    pointer-events: none;
+    color: #064e3b;
+}
+
+/* 滑鼠炫光效果 */
+#glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+}
+
+/* 頁首全寬背景塊 */
+.site-header {
+    background-color: #bdc9bd; /* 茶抹綠 */
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative; /* 為內部絕對定位的圖示提供參照 */
+}
+
+/* 頁首內的圖示容器 */
+.header-icons {
+    position: absolute;
+    top: 50%;
+    left: 2rem; /* 靠左距離 */
+    transform: translateY(-50%); /* 垂直置中 */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #14532d;
+    opacity: 0.8;
+}
+
+/* 標題與詩詞顏色 */
+header h1 {
+    color: #14532d;
+    letter-spacing: 0.2em;
+}
+
+header p {
+    color: #365314;
+}
+
+/* 表單容器 */
+.form-container {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+/* 風味評分區域 */
+.score-box {
+    background: rgba(20, 83, 45, 0.05);
+}
+
+/* 卡片樣式 */
+.tea-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.tea-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}

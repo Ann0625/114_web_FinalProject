@@ -22,4 +22,13 @@ mongoose.connect(process.env.MONGODB_URI)
 app.get('/', (req, res) => res.send('TeaRadar API is running...'));
 
 const PORT = process.env.PORT || 5000;
+// 統一錯誤處理中間件
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({
+    success: false,
+    message: '伺服器發生錯誤',
+    error: err.message
+  });
+});
 app.listen(PORT, () => console.log(` Server on port ${PORT}`));

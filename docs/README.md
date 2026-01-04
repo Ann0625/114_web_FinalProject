@@ -89,7 +89,23 @@
   
 ---
 
-## 7. 系統架構說明
+## 7. API 規格說明文件
+- **Tea 資源管理 API**
+  - 基礎路徑: http://localhost:5000/api/teas
+  - 統一回應格式: 成功時回傳 JSON 資料，失敗時回傳 { "message": "錯誤訊息" }。
+  
+| 功能 | HTTP 方法 | 路由 | 請求主體 (Request Body) | 回應狀態碼 |
+|----|----|----|----|----|
+| 新增茶葉 | POST | `/` | `{ "name", "type", "origin", "amount", "scores" }` | `201 Created` |
+| 取得清單 | GET | `/` | 無 | `200 OK` |
+| 取得單筆 | GET | `/:id` | 無 | `200 OK` |
+| 更新資料 | PUT | `/:id` | `{ "amount", "origin", ... }` | `200 OK` |
+| 刪除紀錄 | DELETE | `/:id` | 無 | `200 OK` |
+
+  
+---
+
+## 8. 系統架構說明
 
 ```114_web_FinalProject/
 ├── backend/
